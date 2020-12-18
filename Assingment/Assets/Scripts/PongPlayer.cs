@@ -53,7 +53,14 @@ public class PongPlayer : MonoBehaviour
         //If something was hit, the raycast.collider will not be null
         if (hitWall.collider != null)
         {
-            Debug.Log(hitWall.collider.name);
+            if (hitWall.point.x < 0)
+            {
+                paddleWall.transform.position = new Vector3(-8.67f, hitWall.point.y);
+            }
+            else //Snap to ceiling
+            {
+                paddleWall.transform.position = new Vector3(8.67f, hitWall.point.y);
+            }
         }
     }
 }
