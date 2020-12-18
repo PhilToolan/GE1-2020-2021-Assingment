@@ -10,6 +10,7 @@ public class PongPlayer : MonoBehaviour
     public LayerMask layerMaskWall;
     public GameObject paddleFloor;
     public GameObject paddleWall;
+    public int totalScore;
 
     // Start is called before the first frame update
     void Start()
@@ -55,11 +56,11 @@ public class PongPlayer : MonoBehaviour
         {
             if (hitWall.point.x < 0)
             {
-                paddleWall.transform.position = new Vector3(-8.67f, hitWall.point.y);
+                paddleWall.transform.position = new Vector3(-8.68f, hitWall.point.y);
             }
-            else //Snap to ceiling
+            else //Snap to other side
             {
-                paddleWall.transform.position = new Vector3(8.67f, hitWall.point.y);
+                paddleWall.transform.position = new Vector3(8.68f, hitWall.point.y);
             }
         }
     }
