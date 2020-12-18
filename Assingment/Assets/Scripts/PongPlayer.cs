@@ -21,7 +21,7 @@ public class PongPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //rotation
+        //rotation of "target"
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 5.23f;
 
@@ -33,10 +33,10 @@ public class PongPlayer : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         RaycastHit2D hitFloor = Physics2D.Raycast(transform.position, transform.right, 20, layerMaskFloor);
-        Debug.DrawRay(transform.position, transform.right * 20, Color.green);
+        //Debug.DrawRay(transform.position, transform.right * 20, Color.green);
 
         RaycastHit2D hitWall = Physics2D.Raycast(transform.position, transform.right, 20, layerMaskWall);
-        Debug.DrawRay(transform.position, transform.right * 20, Color.green);
+        //Debug.DrawRay(transform.position, transform.right * 20, Color.green);
 
         //If something was hit, the raycast.collider will not be null
         if (hitFloor.collider != null)

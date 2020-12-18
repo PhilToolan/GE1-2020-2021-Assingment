@@ -40,10 +40,10 @@ public class TerrainTile : MonoBehaviour
         {
             for (int col = 0; col < quadsPerTile; col++)
             {
-                Vector3 bl = bottomLeft + new Vector3(col, SampleCell2(transform.position.x + col, transform.position.z + row), row);
-                Vector3 tl = bottomLeft + new Vector3(col, SampleCell2(transform.position.x + col, transform.position.z + row + 1), row + 1);
-                Vector3 tr = bottomLeft + new Vector3(col + 1, SampleCell2(transform.position.x + col + 1, transform.position.z + row + 1), row + 1);
-                Vector3 br = bottomLeft + new Vector3(col + 1, SampleCell2(transform.position.x + col + 1, transform.position.z + row), row);
+                Vector3 bl = bottomLeft + new Vector3(col, SampleCell3(transform.position.x + col, transform.position.z + row), row);
+                Vector3 tl = bottomLeft + new Vector3(col, SampleCell3(transform.position.x + col, transform.position.z + row + 1), row + 1);
+                Vector3 tr = bottomLeft + new Vector3(col + 1, SampleCell3(transform.position.x + col + 1, transform.position.z + row + 1), row + 1);
+                Vector3 br = bottomLeft + new Vector3(col + 1, SampleCell3(transform.position.x + col + 1, transform.position.z + row), row);
 
                 int startVertex = vertex;
                 vertices[vertex++] = bl;
@@ -149,7 +149,7 @@ public class TerrainTile : MonoBehaviour
 
         return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
     }
-    float t = 0;
+    //float t = 0;
     // Update is called once per frame   
 
     /*        

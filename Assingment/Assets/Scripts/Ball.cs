@@ -7,28 +7,42 @@ public class Ball : MonoBehaviour
 {
     public Vector2 speed; //Ball only moves in 2d space
     public float speedMultiplier = 1;
-    //public AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioSource gameMusic;
-    //public AudioClip hitSound;
+    public AudioClip hitSound;
+    public AudioClip endSound;
     public Animator textAnimator;
     public Text text;
     public PongPlayer player;
+
+    public bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("PongPlayer").GetComponent<PongPlayer>();
+        gameMusic.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(speed.x, speed.y) * Time.deltaTime * speedMultiplier;
-
+        if (gameOver == false)
+        {
+            transform.position += new Vector3(speed.x, speed.y) * Time.deltaTime * speedMultiplier;
+        }
+        
         //Check if Player missed the ball
         if (transform.position.x < -9 || transform.position.x > 9 || transform.position.y < -5 || transform.position.y > 5)
         {
             End();
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            transform.position = Vector3.zero;
+            gameOver = false;
+            gameMusic.Play();
         }
     }
 
@@ -54,16 +68,18 @@ public class Ball : MonoBehaviour
         textAnimator.SetTrigger("effect");
         player.totalScore += 1;
         text.text = player.totalScore.ToString();
-        //audioSource.pitch = Random.Range(0.8f, 1.3f);
-        //audioSource.PlayOneShot(hitSound);
+        audioSource.pitch = Random.Range(0.8f, 1.3f);
+        audioSource.PlayOneShot(hitSound);
     }
 
     void End()
     {
-        gameMusic.stop();
-        transform.position = Vector3.zero;
+        gameMusic.Stop();
+        transform.position = new Vector3(100, 100, 0);
         player.totalScore = 0;
-        text.text = "Game Over !";
-
+        text.text = "Game Over !\nPress Space to RePlay\nEsc to Quit";
+        audioSource.pitch = 1.0f;
+        audioSource.PlayOneShot(hitSound);
+        gameOver = true;
     }
 }
