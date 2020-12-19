@@ -38,12 +38,18 @@ public class Ball : MonoBehaviour
             End();
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        //Allow user to replay game
+        if (gameOver == true)
         {
-            transform.position = Vector3.zero;
-            gameOver = false;
-            gameMusic.Play();
+            if (Input.GetKey(KeyCode.Space))
+            {
+                transform.position = Vector3.zero;
+                gameOver = false;
+                gameMusic.Play();
+                text.text = "";
+            }
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -77,7 +83,7 @@ public class Ball : MonoBehaviour
         gameMusic.Stop();
         transform.position = new Vector3(100, 100, 0);
         player.totalScore = 0;
-        text.text = "Game Over !\nPress Space to RePlay\nEsc to Quit";
+        text.text = "Game Over !\nPress Space to Replay\nEsc to Quit";
         audioSource.pitch = 1.0f;
         audioSource.PlayOneShot(hitSound);
         gameOver = true;
