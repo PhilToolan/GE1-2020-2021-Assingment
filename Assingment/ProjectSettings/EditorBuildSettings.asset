@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c66b3fdd5d4dd054a9f79d6a537a8caf
   - enabled: 1
     path: Assets/Scenes/PongEffect.unity
     guid: 35ac36180cabb9940a14a14a867737a2
-  - enabled: 1
-    path: Assets/Scenes/Retrowave.unity
-    guid: 6ef71efcccddd094eba904af6c2175d3
   m_configObjects: {}
