@@ -44,6 +44,7 @@ The research for Retrowave:
 - https://www.youtube.com/watch?v=HPHP9bWuQvc
 - https://www.youtube.com/watch?v=PgXZsoslGsg
 - https://www.youtube.com/watch?v=KVYYMDDUgqY
+- https://www.youtube.com/watch?v=Nd1pmR1afGk
 
 The research for The Club:
 - https://www.youtube.com/watch?v=cRSqM-67EiE
