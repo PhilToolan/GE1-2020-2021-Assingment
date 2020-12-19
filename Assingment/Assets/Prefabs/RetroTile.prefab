@@ -46,3 +46,4 @@ MonoBehaviour:
   quadsPerTile: 10
   meshMaterial: {fileID: 2100000, guid: 95b591e68338d8e4fbb7d66eae5fb5ed, type: 2}
   amplitude: 50
+  whichSampler: 2

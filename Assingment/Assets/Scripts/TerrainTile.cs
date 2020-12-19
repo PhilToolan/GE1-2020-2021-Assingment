@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Data;
 
 public class TerrainTile : MonoBehaviour
 {
@@ -15,7 +16,16 @@ public class TerrainTile : MonoBehaviour
 
     private delegate float SampleCell(float x, float y);
 
- 
+    SampleCell[] sampleCell = {
+              new SampleCell(SampleCell0)
+              , new SampleCell(SampleCell1)
+              , new SampleCell(SampleCell2)
+    };
+
+    public int whichSampler = 0;
+
+
+
     // Use this for initialization
     void Awake()
     {
@@ -40,10 +50,10 @@ public class TerrainTile : MonoBehaviour
         {
             for (int col = 0; col < quadsPerTile; col++)
             {
-                Vector3 bl = bottomLeft + new Vector3(col, SampleCell3(transform.position.x + col, transform.position.z + row), row);
-                Vector3 tl = bottomLeft + new Vector3(col, SampleCell3(transform.position.x + col, transform.position.z + row + 1), row + 1);
-                Vector3 tr = bottomLeft + new Vector3(col + 1, SampleCell3(transform.position.x + col + 1, transform.position.z + row + 1), row + 1);
-                Vector3 br = bottomLeft + new Vector3(col + 1, SampleCell3(transform.position.x + col + 1, transform.position.z + row), row);
+                Vector3 bl = bottomLeft + new Vector3(col, sampleCell[whichSampler](transform.position.x + col, transform.position.z + row), row);
+                Vector3 tl = bottomLeft + new Vector3(col, sampleCell[whichSampler](transform.position.x + col, transform.position.z + row + 1), row + 1);
+                Vector3 tr = bottomLeft + new Vector3(col + 1, sampleCell[whichSampler](transform.position.x + col + 1, transform.position.z + row + 1), row + 1);
+                Vector3 br = bottomLeft + new Vector3(col + 1, sampleCell[whichSampler](transform.position.x + col + 1, transform.position.z + row), row);
 
                 int startVertex = vertex;
                 vertices[vertex++] = bl;
@@ -90,7 +100,7 @@ public class TerrainTile : MonoBehaviour
     // SHould really make a new class for all this!
 
     // Mountains and valleys
-    public static float SampleCell2(float x, float y)
+    public static float SampleCell0(float x, float y)
     {
         float flatness = 0.2f;
         float noise = Mathf.PerlinNoise(10000 + x / 100, 10000 + y / 100);
@@ -110,7 +120,7 @@ public class TerrainTile : MonoBehaviour
     }
 
     // Mountains and valleys & bumps
-    public static float SampleCell3(float x, float y)
+    public static float SampleCell1(float x, float y)
     {
         float flatness = 0.2f;
         float noise = Mathf.PerlinNoise(10000 + x / 100, 10000 + y / 100);
@@ -130,10 +140,10 @@ public class TerrainTile : MonoBehaviour
         return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
     }
 
-    public static float SampleCell4(float x, float y)
+    public static float SampleCell2(float x, float y)
     {
-        float flatness = 0.2f;
-        float noise = Mathf.PerlinNoise(10000 + x, 10000 + y);
+        float flatness = 1.0f;
+        float noise = Mathf.PerlinNoise(10000 + x / 100, 10000 + y / 100);
         if (noise > 0.5f + flatness)
         {
             noise = noise - flatness;
@@ -147,7 +157,7 @@ public class TerrainTile : MonoBehaviour
             noise = 0.5f;
         }
 
-        return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
+        return (noise * 300);
     }
     //float t = 0;
     // Update is called once per frame   
