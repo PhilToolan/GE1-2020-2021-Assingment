@@ -38,13 +38,15 @@ The research for Pong Effect:
 - https://www.youtube.com/watch?v=2sz0mI_6tLQ
 - https://www.youtube.com/watch?v=YHSanceczXY
 
-The research for Retrowave:
+The research and resources for Retrowave:
 - https://www.youtube.com/watch?v=YgFaowd-Ui0
 - https://www.youtube.com/watch?v=HODpmgymExQ
 - https://www.youtube.com/watch?v=HPHP9bWuQvc
 - https://www.youtube.com/watch?v=PgXZsoslGsg
 - https://www.youtube.com/watch?v=KVYYMDDUgqY
 - https://www.youtube.com/watch?v=Nd1pmR1afGk
+- https://assetstore.unity.com/packages/3d/vehicles/land/shaded-free-retro-car-179873
+- https://www.polycarbongames.com/single-post/synthwave-skybox
 
 The research for The Club:
 - https://www.youtube.com/watch?v=cRSqM-67EiE
