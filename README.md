@@ -25,8 +25,28 @@ Retrowave is a simple audio visualiser that leans heavily on the synth wave styl
 ### Description
 The Club is another audio visualiser that allows the user to *feel* the music.
 
-Some of the resources I have researched for this assignment are:
+## Resources
+
+Some of the generic resources I have researched for this assignment are:
 - https://forum.unity.com/threads/audio-visualization-tutorial-unity-c-q-a.432461/
 - http://www.41post.com/4776/programming/unity-making-a-simple-audio-visualization
 - https://github.com/aldrinabastillas/Audio-Visualizer
 - https://youtu.be/bV0WvCi83UM
+
+The research for Pong Effect:
+- https://www.youtube.com/watch?v=Mr8fVT_Ds4Q
+- https://www.youtube.com/watch?v=2sz0mI_6tLQ
+- https://www.youtube.com/watch?v=YHSanceczXY
+
+The research for Retrowave:
+- https://www.youtube.com/watch?v=YgFaowd-Ui0
+- https://www.youtube.com/watch?v=HODpmgymExQ
+- https://www.youtube.com/watch?v=HPHP9bWuQvc
+- https://www.youtube.com/watch?v=PgXZsoslGsg
+- https://www.youtube.com/watch?v=KVYYMDDUgqY
+
+The research for The Club:
+- https://www.youtube.com/watch?v=cRSqM-67EiE
+- https://www.youtube.com/watch?v=eTP_8NXwyNE
+- https://www.youtube.com/watch?v=IsDfnIbshj4
+- https://www.youtube.com/watch?v=wtXirrO-iNA
